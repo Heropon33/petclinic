@@ -26,11 +26,5 @@ pipeline {
                 sh 'ls -l target/petclinic.war'
             }
         }
-
-        stage('Upload du war dans le repo artefact'){
-          steps {
-                sh 'ls -l target/petclinic.war'
-            }
-        }
     }
 }
