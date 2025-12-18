@@ -15,7 +15,7 @@ pipeline {
             }
         }
 
-        stage('Verification de la présence du war')
+        stage('Verification de la présence du war'){
           steps {
                 sh 'ls -l target/petclinic.war'
             }
