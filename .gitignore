@@ -8,8 +8,6 @@ bin/
 .idea
 *.iml
 
-# Maven
-target/
 
 # OS
 .DS_Store
