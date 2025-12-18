@@ -52,11 +52,11 @@ pipeline {
             }
         }
 
-        stage('Compilation') {
-            steps {
+        // stage('Compilation') {
+           // steps {
                 // sh './mvnw package'
-            }
-        }
+           // }
+        // }
 
        // stage('Verification de la présence du war'){
          // steps {
