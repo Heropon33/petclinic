@@ -15,6 +15,12 @@ pipeline {
             }
         }
 
+        stage('Suppression du war'){
+            steps {
+                sh 'rm -f target/petclinic.war'
+            }
+        }
+
         stage('Compilation') {
            steps {
                 sh './mvnw package'
