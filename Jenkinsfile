@@ -73,5 +73,33 @@ pipeline {
                 """
             }
         }
+
+        stage('Check application') {
+            steps {
+                sh '''
+                URL="http://13.48.28.53:8080/petclinic/"
+                KEYWORD="Welcome"
+
+                echo "Checking $URL for keyword: $KEYWORD"
+
+                for i in {1..10}; do
+                    HTTP_CODE=$(curl -s -o /tmp/page.html -w "%{http_code}" "$URL")
+
+                    if [ "$HTTP_CODE" = "200" ] && grep -q "$KEYWORD" /tmp/page.html; then
+                    echo "Application OK"
+                    rm /tmp/page.html
+                    exit 0
+                    fi
+
+                    echo "Not ready yet (try $i)"
+                    sleep 5
+                done
+
+                rm /tmp/page.html
+                echo "ERROR: keyword '$KEYWORD' not found"
+                exit 1
+                '''
+            }
+        }
     }
 }
