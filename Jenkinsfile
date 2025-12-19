@@ -15,12 +15,20 @@ pipeline {
                 sh 'java --version'
             }
         }
+        
+        stage('Checkout') {
+            steps {
+                git branch: "${BRANCH}",
+                    url: "${REPO}",
+                    credentialsId: 'github-token'
+            }
+        }
 
-        stage('Suppression du war'){
+       /* stage('Suppression du war'){
             steps {
                 sh 'rm -f target/petclinic.war'
             }
-        }
+        } */
 
         stage('Compilation') {
            steps {
@@ -33,14 +41,7 @@ pipeline {
                 sh 'ls -l target/petclinic.war'
             }
         }
-
-        stage('Checkout') {
-            steps {
-                git branch: "${BRANCH}",
-                    url: "${REPO}",
-                    credentialsId: 'github-token'
-            }
-        }
+        
 /*
         stage('Commit & Push') {
             steps {
