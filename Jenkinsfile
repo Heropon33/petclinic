@@ -16,26 +16,26 @@ pipeline {
             }
         }
         
-        stage('Checkout') {
+        /* stage('Checkout') {
             steps {
                 git branch: "${BRANCH}",
                     url: "${REPO}",
                     credentialsId: 'github-token'
             }
-        }
+        } */
 
        /* stage('Suppression du war'){
             steps {
                 sh 'rm -f target/petclinic.war'
             }
-        } */
+        } 
 
         stage('Compilation') {
            steps {
                 sh './mvnw package'
             }
         }
-
+*/
         stage('Verification de la présence du war'){
             steps {
                 sh 'ls -l target/petclinic.war'
