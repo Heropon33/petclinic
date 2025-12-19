@@ -23,7 +23,7 @@ pipeline {
                     credentialsId: 'github-token'
             }
         }
-/*
+
        stage('Suppression du war'){
             steps {
                 sh 'rm -f target/petclinic.war'
@@ -62,7 +62,7 @@ pipeline {
                 }
             }
         }
-*/ 
+ 
         stage('Deployer sur les webservers via ansible') {
             steps {
                 sh """
