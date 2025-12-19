@@ -70,9 +70,7 @@ pipeline {
                       ssh ansible@159.8.76.124 << 'EOF'
                         cd /home/ansible/trelaze-ansible/
                         git pull
-                        ./run-ansible.sh \
-                          -i inventory \
-                          playbooks/ans_play_install_petclinic.yml
+                        ./run-ansible.sh playbooks/ans_play_install_petclinic.yml -i inventory   
                       EOF
                     '''
             }
