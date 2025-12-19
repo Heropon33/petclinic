@@ -33,7 +33,7 @@ pipeline {
                 sh 'ls -l target/petclinic.war'
             }
         }
-/*
+
         stage('Checkout') {
             steps {
                 git branch: "${BRANCH}",
@@ -41,7 +41,7 @@ pipeline {
                     credentialsId: 'github-token'
             }
         }
-
+/*
         stage('Commit & Push') {
             steps {
                 withCredentials([usernamePassword(
